@@ -27,75 +27,75 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">{{ $recette->name}}</div>
-                    <div class="card-body">
-                        <p>{{ $recette->description }}</p>
-                        <a href="/recipe?id={{ $recette->id }}" value="" class="border-2 border-blue-500 font-bold text-blue-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white">
-                            Modifier
-                        </a>
-                        <a href="/delete_recipe?id={{ $recette->id }}" value="" class="border-2 border-red-500 font-bold text-red-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-red-500 hover:text-white">
-                            Supprimer
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <br>
-        <p> ----- </p>
-        <br>
-        @endforeach
-        @endif
-        @if (Request::has('addRecettes'))
-        <div class="col-md-6">
-            <div class="card rounded-none">
-                <div class="card-header">{{ __('Ajouter une recette') }}
-                </div>
-
                 <div class="card-body">
-                    <form method="POST" action="/new_recipe">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus>
-
-                                @error('description')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Add') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <p>{{ $recette->description }}</p>
+                    <a href="/recipe?id={{ $recette->id }}" value="" class="btn btn-primary">
+                        Modifier
+                    </a>
+                    <a href="/delete_recipe?id={{ $recette->id }}" value="" class="btn btn-primary bg-red-500 hover:bg-red-700">
+                        Supprimer
+                    </a>
                 </div>
             </div>
         </div>
-        @endif
     </div>
+
+    <br>
+    <p> ----- </p>
+    <br>
+    @endforeach
+    @endif
+    @if (Request::has('addRecettes'))
+    <div class="col-md-6">
+        <div class="card rounded-none">
+            <div class="card-header">{{ __('Ajouter une recette') }}
+            </div>
+
+            <div class="card-body">
+                <form method="POST" action="/new_recipe">
+                    @csrf
+
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('name') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus>
+
+                            @error('description')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Add') }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
+</div>
 </div>
 
 @endsection

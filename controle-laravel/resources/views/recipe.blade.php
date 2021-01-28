@@ -3,9 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="text-center"><p>Nom :</p>{{ $recette->name}}</div><br>
-            <div class="text-center"><p>Description :</p>{{ $recette->description}}</div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <p>Nom :</p>{{ $recette->name}}
+            </div><br>
+            <div class="text-center">
+                <p>Description :</p>{{ $recette->description}}
+            </div>
             <div class="card rounded-none">
                 <div class="card-header">{{ __('Modifier la recette') }}</div>
 
@@ -34,9 +38,9 @@
                                 <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" autocomplete="description" autofocus>
 
                                 @error('description')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -52,4 +56,6 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 @endsection

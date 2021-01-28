@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User as User;
+use App\Models\Recipe as Recipe;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,13 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('home', ['user' => $user]);
+        $userID = User::all();
+        $recette = Recipe::all();
+
+        return view('home', [
+            'user' => $user,
+            'userID' => $userID,
+            'recette' => $recette
+        ]);
     }
 }

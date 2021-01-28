@@ -39,6 +39,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
+                            <a class="nav-link" href="/home?recettes">Les recettes</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/home?utilisateurs">Nos utilisateurs</a>
                         </li>
                     </ul>

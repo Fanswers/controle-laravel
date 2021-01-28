@@ -24,3 +24,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/profileUser', [App\Http\Controllers\ProfileController::class, 'index']);
 
 Route::post('/new_recipe', '\App\Http\Controllers\RecipesController@new_recipe');
+
+Route::get('/recipe', function(){
+    return view('recipe');
+});
+
+Route::post('/modify_recipe', '\App\Http\Controllers\RecipesController@modify_recipe');

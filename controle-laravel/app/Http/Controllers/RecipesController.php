@@ -22,4 +22,16 @@ class RecipesController extends Controller
 
         return back();
     }
+
+    public function modify_recipe()
+    {
+        $tempid = 1;
+
+        $recipe = Recipe::find($tempid);
+        $recipe->update([
+            'name' => request('name'),
+            'description' => request('description'),
+        ]);
+        return back();
+    }
 }

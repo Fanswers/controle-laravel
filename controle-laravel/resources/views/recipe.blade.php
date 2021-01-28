@@ -10,7 +10,7 @@
                 <div class="card-header">{{ __('Modifier la recette') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/modify_recipe">
+                    <form method="POST" action="/modify_recipe?id={{ $recette->id }}">
                         @csrf
 
                         <div class="form-group row">

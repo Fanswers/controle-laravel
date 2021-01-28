@@ -32,13 +32,14 @@ class RecipesController extends Controller
 
     public function modify_recipe(request $request)
     {
-        $id = \Request::segment(2);
-        echo($id);
-        $recipe = Recipe::find($id);
-        $recipe->update([
+        $id = $request->id;
+
+        $recette = Recipe::find($id);
+        $recette->update([
             'name' => request('name'),
             'description' => request('description'),
         ]);
+
         return back();
     }
 
@@ -47,6 +48,7 @@ class RecipesController extends Controller
         $id = $request->id;
 
         Recipe::where('id', $id)->delete();
+        
         return back();
     }
 }

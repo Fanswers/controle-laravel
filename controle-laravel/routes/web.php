@@ -29,4 +29,4 @@ Route::post('/new_recipe', '\App\Http\Controllers\RecipesController@new_recipe')
 
 Route::post('/modify_recipe', '\App\Http\Controllers\RecipesController@modify_recipe');
 
-Route::post('/delete_recipe', '\App\Http\Controllers\RecipesController@delete_recipe');
+Route::get('/delete_recipe', '\App\Http\Controllers\RecipesController@delete_recipe');

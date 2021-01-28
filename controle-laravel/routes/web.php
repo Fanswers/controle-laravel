@@ -20,4 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/profileUser', [App\Http\Controllers\ProfileController::class, 'index']);
+
+Route::post('/new_recipe', '\App\Http\Controllers\RecipesController@new_recipe');

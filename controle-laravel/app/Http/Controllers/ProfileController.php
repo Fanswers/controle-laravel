@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User as User;
+use App\Models\Recipe;
 
 class ProfileController extends Controller
 {
     //
     public function index()
     {
-        return view('profileUser');
+        $recette = Recipe::All()->where('user_id', auth()->id());
+        return view('profileUser', ['recette' => $recette]);
     }
 }

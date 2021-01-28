@@ -24,8 +24,22 @@
         <br>
 
         @foreach($recette as $recette)
-        <p>{{ $recette->name }}</p>
-        <p>{{ $recette->description}}</p>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">{{ $recette->name}}</div>
+                    <div class="card-body">
+                        <p>{{ $recette->description }}</p>
+                        <a href="/recipe?id={{ $recette->id }}" value="" class="border-2 border-blue-500 font-bold text-blue-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white">
+                            Modifier
+                        </a>
+                        <a href="/delete_recipe?id={{ $recette->id }}" value="" class="border-2 border-red-500 font-bold text-red-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-red-500 hover:text-white">
+                            Supprimer
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <br>
         <p> ----- </p>
         <br>

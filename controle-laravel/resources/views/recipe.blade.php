@@ -4,11 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
           <div class="col-md-6">
+            <div class="text-center"><p>Nom :</p>{{ $recette->name}}</div><br>
+            <div class="text-center"><p>Description :</p>{{ $recette->description}}</div>
             <div class="card rounded-none">
                 <div class="card-header">{{ __('Modifier la recette') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/modify_recipe">
+                    <form method="POST" action="/modify_recipe?id={{ $recette->id }}">
                         @csrf
 
                         <div class="form-group row">

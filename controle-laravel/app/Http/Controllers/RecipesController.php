@@ -7,6 +7,13 @@ use App\Models\Recipe;
 
 class RecipesController extends Controller
 {
+    public function show_recipe(request $request)
+    {
+        $id = $request->id;
+        $recette = Recipe::find($id);
+        return view('recipe', ['recette' => $recette]);
+    }
+
     public function new_recipe()
     {
         request()->validate([
@@ -23,15 +30,25 @@ class RecipesController extends Controller
         return back();
     }
 
-    public function modify_recipe()
+    public function modify_recipe(request $request)
     {
-        $tempid = 1;
+        $id = $request->id;
 
-        $recipe = Recipe::find($tempid);
-        $recipe->update([
+        $recette = Recipe::find($id);
+        $recette->update([
             'name' => request('name'),
             'description' => request('description'),
         ]);
+
+        return back();
+    }
+
+    public function delete_recipe(request $request)
+    {
+        $id = $request->id;
+
+        Recipe::where('id', $id)->delete();
+        
         return back();
     }
 }

@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $user = User::all();
         $userID = User::all();
-        $recette = Recipe::all();
+        $recette = Recipe::all()->sortByDesc('updated_at');
 
         return view('home', [
             'user' => $user,

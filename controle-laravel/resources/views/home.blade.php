@@ -12,7 +12,8 @@
                     @foreach($recette as $recette)
                     @foreach($userID as $user)
                     @if($recette->user_id == $user->id)
-                    <p>{{ $user->name }}</p>
+                    <p>Posté par {{ $user->name }} le {{$recette->updated_at}} :</p>
+                    <br>
                     @endif
                     @endforeach
                     <p>{{ $recette->name }}</p>

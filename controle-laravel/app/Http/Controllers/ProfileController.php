@@ -10,7 +10,7 @@ class ProfileController extends Controller
     //
     public function index()
     {
-        $recette = Recipe::All()->where('user_id', auth()->id());
+        $recette = Recipe::All()->where('user_id', auth()->id())->sortByDesc('updated_at');;
         return view('profileUser', ['recette' => $recette]);
     }
 }
